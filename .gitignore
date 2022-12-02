@@ -3,6 +3,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 /coursework2.iml/
+/workspace.xml/
 
 
 ### Eclipse ###
