@@ -1,5 +1,7 @@
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.temporal.TemporalAdjusters;
 
 public class Monthly extends Tasks implements Repeatability{
     int repeatDayOfMonth = getDateOfCreation().getDayOfMonth();
@@ -11,7 +13,25 @@ public class Monthly extends Tasks implements Repeatability{
 
     @Override
     public LocalDateTime getTime() {
-        if ()
+        if (getDateOfCreation().isAfter(LocalDateTime.now())){
+            return getDateOfCreation();}
+        if(repeatDayOfMonth==getDateOfCreation().getDayOfMonth()&&timeOfRepeat.isAfter(LocalTime.now())) {
+            return LocalDateTime.of(LocalDate.now(),timeOfRepeat);
+        }
+        if(repeatDayOfMonth>LocalDate.now().getDayOfMonth()){
+            return LocalDateTime.of(LocalDate.now().plusDays(repeatDayOfMonth-LocalDate.now().getDayOfMonth()),timeOfRepeat);
+        }
+        if(repeatDayOfMonth<LocalDate.now().getDayOfMonth()){
+            return LocalDateTime.of(LocalDate.now().with(TemporalAdjusters.firstDayOfNextMonth()).plusDays(repeatDayOfMonth-1),timeOfRepeat);
+        }
         return null;
     }
-}
+    public boolean checkTask(LocalDateTime data) {
+        if (getDateOfCreation().isAfter(data)) {
+            return false;
+        }
+        return data.getDayOfMonth()==(repeatDayOfMonth);
+    }
+
+    }
+

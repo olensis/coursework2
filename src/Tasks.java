@@ -24,7 +24,13 @@ public class Tasks {
 
     public Tasks(String heading, String description, LocalDateTime dateOfCreation, boolean typeTask) {
         this.heading = heading;
+        if (heading == null || heading.isEmpty()) {
+            throw new RuntimeException("Заголовок не заполнен");
+        }
         this.description = description;
+        if (description == null || description.isEmpty()) {
+            throw new RuntimeException("Описание не заполнено");
+        }
         this.dateOfCreation = dateOfCreation;
         this.typeTask = typeTask;
         id = count++;
@@ -68,5 +74,22 @@ public class Tasks {
 
     public void setTypeTask(boolean typeTask) {
         this.typeTask = typeTask;
+    }
+
+    @Override
+    public String toString() {
+        String isTask;
+        if (typeTask){
+            isTask="Рабочая";
+            }else {
+            isTask = "Личная";
+        }
+        return "Задача{" +
+                "Заголовок='" + heading + '\'' +
+                ", Описание ='" + description + '\'' +
+                ", №=" + id +
+                ", тип =" + isTask +
+                ", Дата выполнения " + dateOfCreation.toLocalDate()+ ", Время "+ dateOfCreation.toLocalTime()+
+                '}';
     }
 }
