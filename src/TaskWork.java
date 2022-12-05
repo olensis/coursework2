@@ -19,6 +19,7 @@ public class TaskWork {
         tasks.remove(taskId);
     }
 
+
     public void printTasks() {
         if (tasks.isEmpty()) {
             System.out.println("Пока что ни одна задача не была создана");
@@ -72,16 +73,4 @@ public class TaskWork {
         return LocalDateTime.of(localDate, localTime);
     }
 
-    private static void printMenu() {
-        System.out.println("" +
-                "1. Добавить задачу\n" +
-                "2. Удалить задачу\n" +
-                "3. Получить задачи на указанный день\n" +
-                "4. Получить все удаленные задачи\n" +
-                "5. Редактировать задачу\n" +
-                "6. Вывод всех задач, сортированных по дате\n" +
-                "0. Выход");
-
-
-    }
 }
