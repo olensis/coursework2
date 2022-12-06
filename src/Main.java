@@ -38,9 +38,9 @@ public class Main {
 
     private static void inputTask(Scanner scanner) {
         scanner.nextLine();
-        System.out.print("Введите заголовок задачи: ");
+        System.out.print("Введите описание задачи: ");
         String taskName = scanner.nextLine();
-        System.out.print("Введите описание: ");
+        System.out.print("Введите заголовок: ");
         String description = scanner.nextLine();
         System.out.println("Введите тип задачи:\n" +
                 "Если задача личная, то введите: 0 \t" +
@@ -100,10 +100,7 @@ public class Main {
                 "1. Добавить задачу\n" +
                 "2. Удалить задачу\n" +
                 "3. Получить задачи на указанный день\n" +
-                "4. Получить все удаленные задачи\n" +
-                "5. Редактировать задачу\n" +
-                "6. Вывод всех задач, сортированных по дате\n" +
-                "0. Выход");
+                "4. Выход");
     }
 }
 
