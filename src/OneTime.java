@@ -8,6 +8,9 @@ public class OneTime extends Tasks implements Repeatability {
 
     @Override
     public LocalDateTime getTime() {
-        return null;
+        return getDateOfCreation();
+    }
+    public boolean checkTask(LocalDateTime data) {
+        return getDateOfCreation().isBefore(data);
     }
 }
